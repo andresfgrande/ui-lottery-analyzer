@@ -14,9 +14,7 @@
   border-radius: 8px;
 }
 
-.previous-results,
-.bet-numbers,
-.bet-stats {
+.sub-container {
   margin-top: 20px;
   padding: 15px;
   border-radius: 6px;
@@ -24,7 +22,8 @@
   background: var(--card-bg);
 }
 
-.bet-numbers {
+.bet-numbers,
+.bet-stats {
   display: flex;
   gap: 1em;
 }
@@ -50,6 +49,32 @@
 
 .result-item {
   background: #17a2b8;
+  color: white;
+}
+
+.bet-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.stats-collection-item {
+  flex: 1 1 calc(50% - 20px);
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: var(--graphic-bg);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .stats-collection-item {
+    flex: 1 1 100%; /* Full width on small screens */
+  }
 }
 
 .bet-number {

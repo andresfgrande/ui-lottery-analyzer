@@ -13,20 +13,25 @@
   --dialog-color: #7f8c8d;
 
   --secondary-color: #1a72ad;
+
+  --graphic-background-light: #f8f9fa;
+  --graphic-background-dark: #121212;
 }
 
 [data-theme="light"] {
   --background: var(--background-light);
   --color: var(--color-light);
   --card-bg: var(--card-bg-light);
-  --dialog-border-color: var( --dialog-border-color-light);
+  --dialog-border-color: var(--dialog-border-color-light);
+  --graphic-bg: var(--graphic-background-light);
 }
 
 [data-theme="dark"] {
   --background: var(--background-dark);
   --color: var(--color-dark);
   --card-bg: var(--card-bg-dark);
-  --dialog-border-color: var( --dialog-border-color-dark);
+  --dialog-border-color: var(--dialog-border-color-dark);
+  --graphic-bg: var(--graphic-background-dark);
 }
 
 body {

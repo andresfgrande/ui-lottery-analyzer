@@ -1,17 +1,17 @@
    
-   .user-list-container{
+   .item-list-container{
         max-width: 900px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 3em;
    }
 
-   .user-list{
+   .item-list{
     margin-left: 1em;
     margin-right: 1em;
    }
 
-  .user-card {
+  .item-card {
     display: grid;
     grid-template-columns: 50px 2fr;
     align-items: center;
@@ -24,53 +24,53 @@
     background: var(--card-bg)
   }
   
-  .user-card:hover {
+  .item-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
   }
   
-  .user-id {
+  .item-id {
     font-size: 1.4rem;
     color: var(--secondary-color);
     font-weight: bold;
   }
     
-  .user-name {
+  .item-name {
     margin: 0;
     color: var(--color);
     font-size: 1.2rem;
     font-weight: 600;
   }
   
-  .user-username {
+  .item-subname {
     margin: 0;
     color: #7f8c8d;
     font-size: 0.9rem;
   }
   
   @media (max-width: 480px) {
-    .user-card {
+    .item-card {
       grid-template-columns: 35px 2fr;
       padding: 1.2rem;
     }
   
-    .user-id, .user-name {
+    .item-id, .item-name {
       font-size: 1rem;
     }
   
-    .user-info {
+    .item-info {
       margin-left: 0;
     }
   
-    .user-username {
+    .item-itemname {
       font-size: 0.85rem;
     }
   
-    .user-email a {
+    .item-email a {
       font-size: 0.9rem;
     }
 
-    .user-list-container{
+    .item-list-container{
       margin-top: 2.5em;
   }
   }

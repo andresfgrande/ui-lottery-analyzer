@@ -1,6 +1,6 @@
-import { BetsInfo } from "../types/BetsInfo";
+import { BetInfo, BetsInfo } from "../types/BetsInfo";
 
-export default async function getBets(): Promise<BetsInfo | undefined> {
+export default async function getBets(): Promise<BetInfo[] | undefined> {
   const apiUrl = import.meta.env.VITE_API_URL;
   try {
     const response = await fetch(`${apiUrl}/bets`);
@@ -10,7 +10,8 @@ export default async function getBets(): Promise<BetsInfo | undefined> {
     }
     const data = await response.json();
 
-    return data as BetsInfo;
+    const betsInfo = data as BetsInfo;
+    return betsInfo.bets;
   } catch (error) {
     console.error("Error fetching Bets: ", error);
     return undefined;

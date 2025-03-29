@@ -1,9 +1,6 @@
 import ToggleButton from "./ToggleButton";
-import UserList from "./UserList";
+import BetList from "./BetList";
 import "../styles/dashboard.css";
-import { Bet } from "../types/Bet";
-import { useEffect, useState } from "react";
-import getBet from "../services/getBet";
 
 export default function Dashboard() {
   return (
@@ -11,7 +8,8 @@ export default function Dashboard() {
       <header className="dashboard-header">
         <ToggleButton></ToggleButton>
       </header>
-      <UserList></UserList>
+      <h1 className="dashboard-title">Apuestas</h1>
+      <BetList></BetList>
     </div>
   );
 }

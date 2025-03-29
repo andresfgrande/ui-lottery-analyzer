@@ -1,0 +1,71 @@
+.bet-container {
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.bet-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.bet-details-card {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.previous-results,
+.bet-numbers,
+.bet-stats {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  background: var(--card-bg);
+}
+
+.bet-numbers {
+  display: flex;
+  gap: 1em;
+}
+
+.results-grid,
+.bet-number-grid,
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.result-item,
+.bet-number,
+.stat-item {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.result-item {
+  background: #17a2b8;
+}
+
+.bet-number {
+  background: #28a745;
+  color: white;
+}
+
+.stat-item {
+  background: #ffc107;
+  color: #333;
+}
+
+.loading {
+  font-size: 18px;
+  font-weight: bold;
+  color: #888;
+  text-align: center;
+  padding: 20px;
+}

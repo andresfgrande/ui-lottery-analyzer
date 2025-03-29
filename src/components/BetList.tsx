@@ -3,10 +3,12 @@ import "../styles/userList.css";
 import loadingGif from "../assets/loading.gif";
 import { BetInfo } from "../types/BetsInfo";
 import getBets from "../services/getBets";
+import { useNavigate } from "react-router-dom";
 
 export default function BetList() {
   const [bets, setBets] = useState<BetInfo[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getBetsData = async () => {
@@ -43,15 +45,17 @@ export default function BetList() {
           <img src={loadingGif} alt="Loading..." />
         </div>
       ) : (
-        <div className="item-list">
+        <div className="item-list"> 
           {bets.map((bet, index) => (
-            <div className="item-card">
+            <div
+              className="item-card"
+              onClick={() => navigate(`/bets/${bet.betId}`)}
+              key={bet.betId}
+            >
               <div className="item-id">{index + 1}</div>
               <div className="item-info">
                 <h3 className="item-name">{bet.betId}</h3>
-                <h3 className="item-subname">
-                  {formatDate(bet.creationDate)}
-                </h3>
+                <h3 className="item-subname">{formatDate(bet.creationDate)}</h3>
               </div>
             </div>
           ))}

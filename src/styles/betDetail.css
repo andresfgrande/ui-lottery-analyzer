@@ -30,7 +30,8 @@
 
 .results-grid,
 .bet-number-grid,
-.stats-grid {
+.stats-grid,
+.guess-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -40,7 +41,8 @@
 
 .result-item,
 .bet-number,
-.stat-item {
+.stat-item,
+.guess-item {
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 16px;
@@ -49,6 +51,11 @@
 
 .result-item {
   background: #17a2b8;
+  color: white;
+}
+
+.guess-item {
+  background: #8c65d1;
   color: white;
 }
 
@@ -93,4 +100,8 @@
   color: #888;
   text-align: center;
   padding: 20px;
+}
+
+.pair-representation-title {
+  font-size: 1.5rem;
 }

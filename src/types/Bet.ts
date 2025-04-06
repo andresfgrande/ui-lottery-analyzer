@@ -4,6 +4,7 @@ export interface Bet {
   previousResults: string[];
   betNumbers: BetNumbersPrimitives;
   stats: StatsPrimitives;
+  guesses: GuessesPrimitives;
 }
 
 export interface BetNumbersPrimitives {
@@ -25,4 +26,9 @@ export interface NumberPairListPrimitives {
 export interface NumberCountPrimitves {
   numberPair: string;
   count: number;
+}
+
+
+export interface GuessesPrimitives {
+  guessList: string[];
 }

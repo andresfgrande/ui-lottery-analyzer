@@ -83,6 +83,7 @@ export default function BetDetail() {
         <div className="sub-container">
           <h2>Resultados previos</h2>
           <div className="previous-results">
+            <h3>{bet.previousResults.length}</h3>
             <div className="results-grid">
               {bet.previousResults.map((result, index) => (
                 <span key={index} className="result-item">
@@ -142,6 +143,7 @@ export default function BetDetail() {
         <div className="sub-container">
           <h2>Apuestas</h2>
           <div className="bet-guesses">
+            <h3>{bet.guesses.guessList.length}</h3>
             <div className="guess-grid">
               {bet.guesses.guessList.map((result, index) => (
                 <span key={index} className="guess-item">

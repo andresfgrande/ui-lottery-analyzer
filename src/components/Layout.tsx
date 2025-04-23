@@ -9,6 +9,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="dashboard">
       <header className="dashboard-header">
+        <h2 className="header-logo">Lttery Analyzer</h2>
         <ToggleButton />
       </header>
       {children}

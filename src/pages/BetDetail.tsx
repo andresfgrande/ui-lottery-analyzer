@@ -75,6 +75,11 @@ export default function BetDetail() {
 
   return (
     <div className="bet-container">
+      <div className="back-button-container">
+        <div className="back-button" onClick={() => window.history.back()}>
+          Atrás
+        </div>
+      </div>
       <h1 className="bet-title">Bet ID: {betId}</h1>
       <div className="bet-details-card">
         <p>

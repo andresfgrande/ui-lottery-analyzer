@@ -6,8 +6,6 @@ import "../styles/betDetail.css";
 import {
   BarChart,
   Bar,
-  LineChart,
-  Line,
   XAxis,
   YAxis,
   CartesianGrid,

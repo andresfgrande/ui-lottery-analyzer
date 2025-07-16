@@ -12,6 +12,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import BackButton from "../components/BackButton";
 
 export default function BetDetail() {
   const [bet, setBet] = useState<Bet | undefined>(undefined);
@@ -73,11 +74,7 @@ export default function BetDetail() {
 
   return (
     <div className="bet-container">
-      <div className="back-button-container">
-        <div className="back-button" onClick={() => window.history.back()}>
-          Atrás
-        </div>
-      </div>
+      <BackButton></BackButton>
       <h1 className="bet-title">Bet ID: {betId}</h1>
       <div className="bet-details-card">
         <p>

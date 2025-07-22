@@ -13,10 +13,16 @@ export default function NewBet() {
     const newPreviousResultTrimmed = newPreviousResult.trim();
     if (newPreviousResultTrimmed) {
       previousResults.addPreviousResult(new PreviousResult(newPreviousResultTrimmed));
-      setPreviousResults(previousResults);
+      setPreviousResults(new PreviousResults(previousResults.getPreviousResults().previousResults.map(pr => new PreviousResult(pr))));
       setNewPreviousResult("");
     }
   };
+
+  const removePreviousResult = (previousResult: string)=>{
+    const resultToRemove = new PreviousResult(previousResult);
+    previousResults.removePreviousResult(resultToRemove);
+    setPreviousResults(new PreviousResults(previousResults.getPreviousResults().previousResults.map(pr => new PreviousResult(pr))));
+  }
 
   return (
     <>
@@ -29,7 +35,7 @@ export default function NewBet() {
               <h3>{previousResults.getLength()}</h3>
               <div className="results-grid">
                 {previousResults.getPreviousResults().previousResults.map((result, index) => (
-                  <span key={index} className="result-item">
+                  <span onClick={()=>removePreviousResult(result)} key={index} className="result-item">
                     {result}
                   </span>
                 ))}
@@ -37,16 +43,18 @@ export default function NewBet() {
             </div>
             <div className="add-previous-result-form">
               <input
-                type="text"
+                type="number"
                 value={newPreviousResult}
                 onChange={(e) => setNewPreviousResult(e.target.value)}
                 placeholder="Añadir resultado previo"
                 className="add-input"
+                max={9999}
               />
               <button
                 type="button"
                 onClick={addPreviousResult}
                 className="add-button"
+                disabled={newPreviousResult.trim().length !== 5} 
               >
                 Añadir
               </button>

@@ -15,3 +15,16 @@
   background-color: rgb(72, 156, 72);
   color: white;
 }
+
+.result-item{
+  cursor: pointer;
+}
+
+.result-item:hover {
+  background-color: #c05353;
+}
+
+.add-button:disabled {
+  background-color: #cccccc; 
+  cursor: not-allowed;
+}

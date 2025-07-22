@@ -1,18 +1,23 @@
 import { useState, useEffect } from "react";
 import "../styles/newBet.css";
+import { PreviousResults, PreviousResult } from "../types/PreviousResult";
+
+
 export default function NewBet() {
-  const [previousResults, setPreviousResults] = useState<string[]>([]);
+  const [previousResults, setPreviousResults] = useState<PreviousResults>(
+    new PreviousResults()
+  );
   const [newPreviousResult, setNewPreviousResult] = useState("");
 
   const addPreviousResult = () => {
     const newPreviousResultTrimmed = newPreviousResult.trim();
     if (newPreviousResultTrimmed) {
-      setPreviousResults((prev) => [...prev, newPreviousResult]);
+      previousResults.addPreviousResult(new PreviousResult(newPreviousResultTrimmed));
+      setPreviousResults(previousResults);
       setNewPreviousResult("");
     }
   };
 
-  //TODO check previous result: 5 digits, only numbers, no duplicates
   return (
     <>
       <h1 className="dashboard-title">Nuevo analisis de apuestas</h1>
@@ -21,9 +26,9 @@ export default function NewBet() {
           <div className="sub-container">
             <h2>Resultados previos</h2>
             <div className="previous-results">
-              <h3>{previousResults.length}</h3>
+              <h3>{previousResults.getLength()}</h3>
               <div className="results-grid">
-                {previousResults.map((result, index) => (
+                {previousResults.getPreviousResults().previousResults.map((result, index) => (
                   <span key={index} className="result-item">
                     {result}
                   </span>

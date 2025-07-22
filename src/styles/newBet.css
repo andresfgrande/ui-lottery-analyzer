@@ -28,3 +28,15 @@
   background-color: #cccccc; 
   cursor: not-allowed;
 }
+
+.create-button-container {
+  margin-top: 2em;
+}
+.create-button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(58, 103, 199);
+  color: white;
+  font-size: 16px;
+}

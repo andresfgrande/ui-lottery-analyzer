@@ -3,6 +3,7 @@ import "../styles/newBet.css";
 import { PreviousResults, PreviousResult } from "../types/PreviousResult";
 import createBet from "../services/createBet.ts";
 import { useNavigate } from "react-router-dom";
+import BackButton from "../components/BackButton.tsx";
 
 export default function NewBet() {
   const [previousResults, setPreviousResults] = useState<PreviousResults>(
@@ -59,6 +60,7 @@ export default function NewBet() {
     <>
       <h1 className="dashboard-title">Nuevo analisis de apuestas</h1>
       <div className="bet-container">
+        <BackButton></BackButton>
         <div className="bet-details-card">
           <div className="sub-container">
             <h2>Resultados previos</h2>

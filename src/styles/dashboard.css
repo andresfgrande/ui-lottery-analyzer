@@ -62,4 +62,6 @@
   position: fixed;
   margin-bottom: 2em;
   margin-right: 1em;
+  bottom: 0;
+  right: 0;
 }

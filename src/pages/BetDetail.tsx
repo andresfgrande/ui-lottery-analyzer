@@ -13,10 +13,14 @@ import {
   Legend,
 } from "recharts";
 import BackButton from "../components/BackButton";
+import { PreviousResults } from "../types/PreviousResult";
 
 export default function BetDetail() {
   const [bet, setBet] = useState<Bet | undefined>(undefined);
   const { betId } = useParams();
+  const [previousResults, setPreviousResults] = useState<PreviousResults>(
+    new PreviousResults()
+  );
 
   useEffect(() => {
     const getBetData = async () => {
@@ -30,6 +34,9 @@ export default function BetDetail() {
         return;
       }
       setBet(betData);
+      setPreviousResults(
+        PreviousResults.fromPrimitives(betData.previousResults)
+      );
     };
     getBetData();
   }, [betId]);
@@ -72,6 +79,12 @@ export default function BetDetail() {
     }
   }
 
+  const removePreviousResult = (previousResult: string) => {
+    console.log("Removing previous result: ", previousResult);
+    //TODO: create edit button to modify the list
+    //TODO: create save button to call the update endpoint
+  };
+
   return (
     <div className="bet-container">
       <BackButton></BackButton>
@@ -85,11 +98,17 @@ export default function BetDetail() {
           <div className="previous-results">
             <h3>{bet.previousResults.length}</h3>
             <div className="results-grid">
-              {bet.previousResults.map((result, index) => (
-                <span key={index} className="result-item">
-                  {result}
-                </span>
-              ))}
+              {previousResults.getPreviousResults().previousResults.map(
+                (result, index) => (
+                  <span
+                    key={index}
+                    className="result-item"
+                    onClick={() => removePreviousResult(result)}
+                  >
+                    {result}
+                  </span>
+                )
+              )}
             </div>
           </div>
         </div>

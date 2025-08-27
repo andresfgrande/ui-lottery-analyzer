@@ -50,4 +50,13 @@ export class PreviousResults {
   getLength(): number {
     return this.previousResultList.length;
   }
+
+  static fromPrimitives(previousResultsPrimitives: string[]): PreviousResults {
+    const previousResults = new PreviousResults(
+      previousResultsPrimitives.map(
+        (previousResultString) => new PreviousResult(previousResultString)
+      )
+    );
+    return previousResults;
+  }
 }

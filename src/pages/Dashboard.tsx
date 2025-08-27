@@ -6,7 +6,7 @@ export default function Dashboard() {
     const navigate = useNavigate();
   return (
     <>
-      <h1 className="dashboard-title">Apuestas</h1>
+      <h1 className="dashboard-title">Análisis de apuestas</h1>
       <BetList></BetList>
       <button className="create-button-main" onClick={()=> navigate(`bets/new`)}> Crear nuevo análisis</button>
     </>

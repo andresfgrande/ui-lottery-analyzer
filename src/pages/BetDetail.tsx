@@ -21,6 +21,7 @@ export default function BetDetail() {
   const [previousResults, setPreviousResults] = useState<PreviousResults>(
     new PreviousResults()
   );
+  const [editable, setEditable] = useState(false);
 
   useEffect(() => {
     const getBetData = async () => {
@@ -79,10 +80,14 @@ export default function BetDetail() {
     }
   }
 
+  //TODO: create edit button to modify the list
+  //TODO: create save button to call the update endpoint
   const removePreviousResult = (previousResult: string) => {
     console.log("Removing previous result: ", previousResult);
-    //TODO: create edit button to modify the list
-    //TODO: create save button to call the update endpoint
+  };
+
+  const saveChanges = () => {
+    console.log("Saving changes");
   };
 
   return (
@@ -98,8 +103,9 @@ export default function BetDetail() {
           <div className="previous-results">
             <h3>{bet.previousResults.length}</h3>
             <div className="results-grid">
-              {previousResults.getPreviousResults().previousResults.map(
-                (result, index) => (
+              {previousResults
+                .getPreviousResults()
+                .previousResults.map((result, index) => (
                   <span
                     key={index}
                     className="result-item"
@@ -107,8 +113,29 @@ export default function BetDetail() {
                   >
                     {result}
                   </span>
-                )
-              )}
+                ))}
+            </div>
+            <div className="edit-previous-result-form">
+              <button type="button" className="add-button">
+                Editar
+              </button>
+            </div>
+            <div className="add-previous-result-form">
+              <input
+                type="number"
+                placeholder="Añadir resultado previo"
+                className="add-input"
+                max={9999}
+              />
+              <button type="button" className="add-button">
+                Añadir
+              </button>
+            </div>
+            <div className="create-button-container">
+              <button type="button" className="create-button">
+                {" "}
+                Guardar cambios
+              </button>
             </div>
           </div>
         </div>

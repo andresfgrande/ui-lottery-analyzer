@@ -1,4 +1,4 @@
-.add-previous-result-form {
+.add-previous-result-form, .edit-previous-result-form {
   margin-top: 2em;
 }
 
@@ -13,6 +13,15 @@
   border-radius: 5px;
   cursor: pointer;
   background-color: rgb(72, 156, 72);
+  color: white;
+}
+
+
+.edit-previous-result-form button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(236, 122, 55);
   color: white;
 }
 

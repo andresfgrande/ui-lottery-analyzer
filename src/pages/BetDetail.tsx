@@ -14,6 +14,7 @@ import {
 } from "recharts";
 import BackButton from "../components/BackButton";
 import { PreviousResult, PreviousResults } from "../types/PreviousResult";
+import updateBet from "../services/updateBet";
 
 export default function BetDetail() {
   const [bet, setBet] = useState<Bet | undefined>(undefined);
@@ -81,8 +82,6 @@ export default function BetDetail() {
     }
   }
 
-  //TODO: create edit button to modify the list
-  //TODO: create save button to call the update endpoint
   const removePreviousResult = (previousResult: string) => {
     if (!editable) return;
 
@@ -112,8 +111,34 @@ export default function BetDetail() {
     }
   };
 
-  const saveChanges = () => {
+  const saveChanges = async () => {
     console.log("Saving changes");
+
+    if (previousResults.getLength() === 0) {
+      alert("Debe añadir al menos un resultado previo.");
+      return;
+    }
+
+    const updateBetRequest = {
+      betId: bet.betId,
+      previousResults: previousResults.getPreviousResults().previousResults,
+    };
+
+    const response = await updateBet(updateBetRequest);
+    if (!response) {
+      alert("Error al actualizar la apuesta. Inténtelo de nuevo.");
+      return;
+    }
+
+    if (betId) {
+      const betData = await getBet(betId);
+      if (!betData) {
+        setBet(undefined);
+        return;
+      }
+      setBet(betData);
+    }
+
     changeEditableStatus();
   };
 
